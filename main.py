@@ -13,3 +13,12 @@ def main():
     ingredients = input("Enter ingredients (comma-separated): ").split(',')
     ingredients = [ingredient.strip() for ingredient in ingredients] # Cleaning up whitespaces.
     print("\nFetching recipies that include your ingredients...\n")
+    recipies = find_recipies_by_ingredients(ingredients)
+    if recipies:
+        for recipe in recipies:
+            print(f"Recipe:{recipe['title']}")
+            print(f"Link: {recipe['sourceUrl']}")
+    else:
+        print("No recipies found matching those ingredients.")
+if __name__ == '__main__':
+    main()
